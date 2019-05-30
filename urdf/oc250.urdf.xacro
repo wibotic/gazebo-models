@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<robot name="wibotic_oc250" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="charger_frame"/>
+  
+  <joint name="oc250_joint" type="fixed">
+    <origin xyz="$(arg px) $(arg py) $(arg pz)" rpy="$(arg or) $(arg op) $(arg oy)"/>
+    <parent link="charger_frame"/>
+    <child link="charger_link"/>
+  </joint>
+  
+  <link name="charger_link">
+    <collision name="collision">
+      <geometry>
+        <mesh filename="../meshes/OC250.dae"/>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <geometry>
+        <mesh filename="../meshes/OC250.dae"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.00001887" ixy="0.0" ixz="0.0"
+               iyy="0.00001887" iyz="0.0"
+               izz="0.00001887"/>
+    </inertial>
+  </link>
+  <wibotic_sim_oc250/>
+</robot>

@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="RC100">
+    <link name="coil_frame"/>
+    
+    <joint name="rc100_joint1" type="fixed">
+      <pose>0 0 0  0 0 0</pose>
+      <parent>coil_frame</parent>
+      <child>coil_link</child>
+    </joint>
+    
+    <link name="coil_link">
+      <collision name="coil_collision">
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/RC100.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/RC100.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <!-- Coil dimensions: x=0.109, y=0.0121, z=0.113 -->
+      <inertial>
+        <mass>0.025</mass>
+        <pose>0.0545 0.00605 0.0565  0 0 0</pose>
+      </inertial>
+    </link>
+  </model>
+</sdf>

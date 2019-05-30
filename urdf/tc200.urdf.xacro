@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot name="wibotic_tc200" xmlns:xacro="http://ros.org/wiki/xacro">  
+    <link name="coil_frame"/>
+    
+    <joint name="tc200_joint1" type="fixed">
+      <origin xyz="$(arg px) $(arg py) $(arg pz)" rpy="$(arg or) $(arg op) $(arg oy)"/>
+      <parent link="coil_frame"/>
+      <child link="coil_link"/>
+    </joint>
+    
+    <link name="coil_link">
+      <collision name="collision">
+        <geometry>
+          <mesh filename="../meshes/TC200.dae"/>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh filename="../meshes/TC200.dae"/>
+        </geometry>
+      </visual>
+      <!-- Dimensions: x=0.21, y=0.02, z=0.214 -->
+      <inertial>
+        <mass value="0.05"/>
+        <origin xyz="0.105 -0.01 0.107"/>
+        <inertia ixx="0.00001887" ixy="0.0" ixz="0.0"
+                 iyy="0.00001887" iyz="0.0"
+                 izz="0.00003713"/>
+      </inertial>
+    </link>
+    <wibotic_sim_tc200/>
+</robot>

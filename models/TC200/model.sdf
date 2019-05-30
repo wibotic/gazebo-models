@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="TC200">
+    <link name="coil_frame"/>
+    
+    <joint name="tc200_joint1" type="fixed">
+      <pose>0 0 0  0 0 0</pose>
+      <parent>coil_frame</parent>
+      <child>coil_link</child>
+    </joint>
+    
+    <link name="coil_link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/TC200_simple.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/TC200.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <!-- Dimensions: x=0.21, y=0.02, z=0.214 -->
+      <inertial>
+        <mass>0.05</mass>
+        <pose>0.105 -0.01 0.107  0 0 0</pose>
+      </inertial>
+
+      <!-- Describe the coil range "collision" -->
+      <collision name="range_collision">
+        <pose>0.105 -0.01 0.107  0 0 0</pose>
+
+        <geometry>
+          <sphere>
+            <radius>0.0545</radius>
+          </sphere>
+        </geometry>
+
+        <surface>
+          <contact>
+            <collide_without_contact>true</collide_without_contact>
+            <collide_without_contact_bitmask>0x10000</collide_without_contact_bitmask>
+          </contact>
+        </surface>
+      </collision>
+    </link>
+  </model>
+</sdf>
