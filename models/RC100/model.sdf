@@ -4,13 +4,12 @@
     <link name="coil_frame"/>
     
     <joint name="rc100_joint1" type="fixed">
-      <pose>0 0 0  0 0 0</pose>
       <parent>coil_frame</parent>
       <child>coil_link</child>
     </joint>
-    
+
     <link name="coil_link">
-      <collision name="coil_collision">
+      <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://../meshes/RC100.dae</uri>
@@ -25,12 +24,11 @@
           </mesh>
         </geometry>
       </visual>
-
-      <!-- Coil dimensions: x=0.109, y=0.0121, z=0.113 -->
-      <inertial>
-        <mass>0.025</mass>
-        <pose>0.0545 0.00605 0.0565  0 0 0</pose>
-      </inertial>
+    </link>
+    
+    <!-- Coil dimensions: x=0.109, y=0.0121, z=0.113 -->
+    <link name="coil_center">
+      <pose>0.0545 0.00605 0.0565  0 0 0</pose>
     </link>
   </model>
 </sdf>
