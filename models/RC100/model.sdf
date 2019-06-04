@@ -1,6 +1,10 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="RC100">
+    <plugin name="rx_plugin" filename="libwibotic_coil_plugin.so">
+      <coilType>receive</coilType>
+    </plugin>
+    
     <link name="coil_frame"/>
     
     <joint name="rc100_joint1" type="fixed">
@@ -16,7 +20,15 @@
           </mesh>
         </geometry>
       </collision>
-
+      <!-- Coil dimensions: x=0.109, y=0.0121, z=0.113 -->
+      <collision name="COIL_CENTER">
+        <pose>0.0545 0.00605 0.0565  0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.001</radius>
+          </sphere>
+        </geometry>
+      </collision>
       <visual name="visual">
         <geometry>
           <mesh>
@@ -24,11 +36,6 @@
           </mesh>
         </geometry>
       </visual>
-    </link>
-    
-    <!-- Coil dimensions: x=0.109, y=0.0121, z=0.113 -->
-    <link name="coil_center">
-      <pose>0.0545 0.00605 0.0565  0 0 0</pose>
     </link>
   </model>
 </sdf>

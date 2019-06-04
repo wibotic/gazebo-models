@@ -1,6 +1,10 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="TC200">
+    <plugin name="tx_plugin" filename="libwibotic_coil_plugin.so">
+      <coilType>transmit</coilType>
+    </plugin>
+    
     <link name="coil_frame"/>
     
     <joint name="tc200_joint1" type="fixed">
@@ -16,7 +20,15 @@
           </mesh>
         </geometry>
       </collision>
-
+      <!-- Dimensions: x=0.21, y=0.02, z=0.214 -->
+      <collision name="COIL_CENTER">
+        <pose>0.105 0.01 0.107  0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.001</radius>
+          </sphere>
+        </geometry>
+      </collision>
       <visual name="visual">
         <geometry>
           <mesh>
@@ -24,11 +36,6 @@
           </mesh>
         </geometry>
       </visual>  
-    </link>
-
-    <!-- Dimensions: x=0.21, y=0.02, z=0.214 -->
-    <link name="coil_center">
-      <pose>0.105 -0.01 0.107  0 0 0</pose>
     </link>
   </model>
 </sdf>
