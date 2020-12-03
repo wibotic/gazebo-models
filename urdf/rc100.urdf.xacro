@@ -40,6 +40,11 @@
                  izz="0.00003713"/>
       </inertial>
     </link>
+    <gazebo>
+      <plugin name="rx_plugin" filename="libwibotic_coil_plugin.so">
+        <coilType>receive</coilType>
+      </plugin>
+    </gazebo>
     <wibotic_sim_rc100/>
   </xacro:macro>
 </robot>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<robot name="oc110" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link"/>
+  
+  <xacro:if value="$(arg static)">
+  <link name="world"/>
+  <joint name="world_joint" type="fixed">
+    <parent link="world" />
+    <child link = "base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+  </xacro:if>
+  
+  <xacro:include filename="$(find wibotic_models)/urdf/oc110.urdf.xacro"/>
+  <xacro:wibotic_oc110  parent="base_link" p_x="0" p_y="0" p_z="0"/>
+</robot>
